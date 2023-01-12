@@ -1,0 +1,29 @@
+<div *ngIf="currentQuestion">
+
+    {{ questionNumber+1 }} {{ currentQuestion.description }}
+    
+    <ul>
+        <li *ngFor="let reponse of currentQuestion.reponses; let i = index">
+           
+            <input type="checkbox" [(ngModel)]="reponse.selectionne"> {{ reponse.intitule }}
+        </li>
+ 
+    </ul>    
+</div>
+
+
+<button *ngIf = "!isLastQuestion()" (click)=" getNextQuestion()"> next</button>
+<button *ngIf = "isLastQuestion()" (click)=" validateExamen()"> validate</button>
+
+
+<a *ngIf="userExamen" href="#" [routerLink]="['userExamen/', userExamen.id]" class="btn btn-info">Ici le lien</a>
+
+<a class="badge badge-warning" *ngIf="userExamen"  routerLink="/userExamen/{{ userExamen.id }}">
+    Edit
+  </a>
+
+       
+        
+       
+     
+  

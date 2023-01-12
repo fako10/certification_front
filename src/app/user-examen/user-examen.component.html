@@ -1,0 +1,17 @@
+<p>user-examen works!</p>
+
+<div *ngIf="userExamen"> {{userExamen.dateExamen}}</div>
+
+<div *ngIf="currentQuestion">
+
+    {{ questionNumber+1 }} {{ currentQuestion.description }}
+    
+    <ul>
+        <li *ngFor="let reponse of currentQuestion.reponses; let i = index">
+           
+            <input type="checkbox" [(ngModel)]="reponse.selectionne"> {{ reponse.intitule }}
+        </li>
+ 
+    </ul>    
+</div>
+

@@ -1,0 +1,47 @@
+import { Component, OnInit } from '@angular/core';
+import { CertificationService } from '../_services/certification.service';
+import { Certification } from '../models/certification.model';
+
+@Component({
+  selector: 'app-certifications',
+  templateUrl: './certifications.component.html',
+  styleUrls: ['./certifications.component.css']
+})
+export class CertificationsComponent implements OnInit {
+
+  certifications?: Certification[];
+  currentTutorial: Certification = {};
+  currentIndex = -1;
+  title = '';
+
+  constructor(private certificationService: CertificationService) { }
+
+  ngOnInit(): void {
+    this.retrieveCertifications();
+  }
+
+  retrieveCertifications(): void {
+    this.certificationService.getAll()
+      .subscribe(
+        data => {
+          this.certifications = data;
+          console.log('test');
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  refreshList(): void {
+    this.retrieveCertifications();
+    this.currentTutorial = {};
+    this.currentIndex = -1;
+  }
+
+  setActiveTutorial(tutorial: Certification, index: number): void {
+    this.currentTutorial = tutorial;
+    this.currentIndex = index;
+  }
+
+}

@@ -1,0 +1,41 @@
+<div class="list row">
+    
+    <div class="col-md-6">
+      <h4>Tutorials List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let certification of certifications; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveTutorial(certification, i)"
+        >
+          {{ certification.libelle }}
+        </li>
+      </ul>
+  
+     
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentTutorial.id">
+        <h4>Tutorial</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentTutorial.libelle }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentTutorial.description }}
+        </div>
+       
+        <a href="#" [routerLink]="['examenList/', currentTutorial.id]" class="btn btn-info">Ici le lien</a>
+
+       
+          Edit
+       
+      </div>
+  
+      <div *ngIf="!currentTutorial">
+        <br />
+        <p>Please click on a Tutorial...</p>
+      </div>
+    </div>
+  </div>
