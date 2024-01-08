@@ -15,11 +15,15 @@ userExamen?: UserExamen;
 currentQuestion?:Question;
 questionNumber = 0;
 questions?: Array<Question>;
+display: any;
 
-  constructor(private questionService : QuestionService,  private route: ActivatedRoute,
+
+  constructor(private questionService : QuestionService,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.timer(1);
     this.getUserExamen(this.route.snapshot.params['id']);
   }
 
@@ -46,8 +50,8 @@ questions?: Array<Question>;
     if (this.questions)
       this.currentQuestion =  this.questions[this.questionNumber];
       console.log( this.currentQuestion);
-   
-    
+
+
   }
 
   isLastQuestion() {
@@ -55,7 +59,7 @@ questions?: Array<Question>;
     else return false;
   }
 
-  validateExamen() {
+  validateExamen():void {
     console.log('valider')
     this.questionService.saveExamen(this.userExamen || new UserExamen).subscribe(data => {
         this.userExamen = data;
@@ -63,7 +67,35 @@ questions?: Array<Question>;
         console.log(data)
     });
     console.log(this.userExamen)
-    return this.userExamen;
+    // @ts-ignore
+    this.router.navigateByUrl(`/userExamenValidate/${this.userExamen?.id}`);
+  }
+
+  timer(minute: any) {
+    // let minute = 1;
+    let seconds: number = minute * 60;
+    let textSec: any = "0";
+    let statSec: number = 60;
+
+    const prefix = minute < 10 ? "0" : "";
+
+    const timer = setInterval(() => {
+      seconds--;
+      if (statSec != 0) statSec--;
+      else statSec = 59;
+
+      if (statSec < 10) {
+        textSec = "0" + statSec;
+      } else textSec = statSec;
+
+      this.display = `${prefix}${Math.floor(seconds / 60)}:${textSec}`;
+
+      if (seconds == 0) {
+        console.log("finished");
+        clearInterval(timer);
+        this.validateExamen();
+      }
+    }, 1000);
   }
 
 }

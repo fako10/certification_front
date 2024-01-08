@@ -1,7 +1,15 @@
+
+
+
+
+
+
+
+
 <div class="list row">
-    
+
     <div class="col-md-6">
-      <h4>Tutorials List</h4>
+      <h4>My Certifications</h4>
       <ul class="list-group">
         <li
           class="list-group-item"
@@ -12,8 +20,8 @@
           {{ certification.libelle }}
         </li>
       </ul>
-  
-     
+
+
     </div>
     <div class="col-md-6">
       <div *ngIf="currentTutorial.id">
@@ -25,17 +33,24 @@
           <label><strong>Description:</strong></label>
           {{ currentTutorial.description }}
         </div>
-       
-        <a href="#" [routerLink]="['examenList/', currentTutorial.id]" class="btn btn-info">Ici le lien</a>
 
-       
+
+        <a href="#" [routerLink]="['/examenList/', currentTutorial.id]" class="btn btn-info">Ici le lien</a>
+
+
           Edit
-       
+
       </div>
-  
+
       <div *ngIf="!currentTutorial">
         <br />
         <p>Please click on a Tutorial...</p>
       </div>
     </div>
   </div>
+
+
+
+
+
+

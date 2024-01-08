@@ -11,6 +11,9 @@ import { CertificationsComponent } from './certifications/certifications.compone
 import { ExamenListComponent } from './examen-list/examen-list.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { UserExamenComponent } from './user-examen/user-examen.component';
+import {ExamenComponent} from "./examen/examen.component";
+import {UserexamenvalidateComponent} from "./userexamenvalidate/userexamenvalidate.component";
+import {QuestionsvalidateComponent} from "./questionsvalidate/questionsvalidate.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,9 +23,12 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'certification', component: CertificationComponent },
   { path: 'certificationList', component: CertificationsComponent },
-  { path: 'home/examenList/:id', component: ExamenListComponent},
+  { path: 'examenList/:id', component: ExamenListComponent},
+  { path: 'examen/:id', component: ExamenComponent},
   { path: 'questions/:id', component: QuestionsComponent},
   { path: 'userExamen/:id', component: UserExamenComponent},
+  { path: 'userExamenValidate/:id', component: UserexamenvalidateComponent},
+  { path: 'questionValidate/:id', component: QuestionsvalidateComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 @NgModule({

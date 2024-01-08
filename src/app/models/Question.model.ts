@@ -6,4 +6,5 @@ export class Question {
     description?: string;
     examen?: Int16Array;
     reponses?: Array<Reponse>;
+    isCorrecte?: boolean
 }

@@ -17,6 +17,11 @@ import { CertificationsComponent } from './certifications/certifications.compone
 import { ExamenListComponent } from './examen-list/examen-list.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { UserExamenComponent } from './user-examen/user-examen.component';
+import { ExamenComponent } from './examen/examen.component';
+import { UserexamrecapquestionsComponent } from './userexamrecapquestions/userexamrecapquestions.component';
+import { UserexamenquestionsComponent } from './userexamenquestions/userexamenquestions.component';
+import { UserexamenvalidateComponent } from './userexamenvalidate/userexamenvalidate.component';
+import { QuestionsvalidateComponent } from './questionsvalidate/questionsvalidate.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { UserExamenComponent } from './user-examen/user-examen.component';
     CertificationsComponent,
     ExamenListComponent,
     QuestionsComponent,
-    UserExamenComponent
+    UserExamenComponent,
+    ExamenComponent,
+    UserexamrecapquestionsComponent,
+    UserexamenquestionsComponent,
+    UserexamenvalidateComponent,
+    QuestionsvalidateComponent
   ],
   imports: [
     BrowserModule,

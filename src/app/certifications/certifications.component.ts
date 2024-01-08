@@ -44,4 +44,6 @@ export class CertificationsComponent implements OnInit {
     this.currentIndex = index;
   }
 
+
+
 }

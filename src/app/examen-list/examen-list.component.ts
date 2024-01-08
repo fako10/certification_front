@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ExamenService } from '../_services/examen.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Examen } from '../models/Examen.model';
+import {Certification} from "../models/certification.model";
+import {ExamenGroup} from "../models/ExamenGroup.model";
 
 @Component({
   selector: 'app-examen-list',
@@ -11,16 +13,40 @@ import { Examen } from '../models/Examen.model';
 export class ExamenListComponent implements OnInit {
 
   examens?: Examen[];
+  examenGroups?: ExamenGroup[];
+
   currentExamen: Examen = {};
   currentIndex = -1;
+
+  currentExamenGroup: ExamenGroup = {};
+
+
+  certification?: string;
   title = '';
-  constructor(private examenService : ExamenService, 
+  constructor(private examenService : ExamenService,
     private route: ActivatedRoute,
     private router: Router) { }
 
 
   ngOnInit(): void {
     this.getExamens(this.route.snapshot.params['id']);
+    this.getExamenGroups(this.route.snapshot.params['id']);
+    console.log('je teste voir');
+    console.log(this.certification);
+  }
+
+  getExamenGroups(id: string): void {
+    this.examenService.getExamenGroups(id).subscribe(
+      data => {
+        this.examenGroups = data;
+        console.log('loggons examenGroup')
+        console.log(id);
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+
   }
 
   getExamens(id: string): void {
@@ -28,6 +54,12 @@ export class ExamenListComponent implements OnInit {
       .subscribe(
         data => {
           this.examens = data;
+          var examen = this.examens?.find(() => true) ;
+          console.log('loggons examen')
+          console.log(examen);
+          if(typeof examen != "undefined") {
+            this.certification = examen.certification;
+          }
           console.log(id);
           console.log(data);
         },
@@ -41,4 +73,12 @@ export class ExamenListComponent implements OnInit {
     this.currentIndex = index;
   }
 
+  setActiveExamenGroup(exam: ExamenGroup, index: number): void {
+    this.currentExamenGroup = exam;
+    this.currentIndex = index;
+  }
+
+  onViewFaceSnap(): void {
+    this.router.navigateByUrl(`facesnaps/`);
+  }
 }
