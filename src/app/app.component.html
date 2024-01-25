@@ -3,11 +3,36 @@
 
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/certificationList" class="nav-link">Mes Certifications</a>
-      </li>
-      <li class="nav-item">
         <a href="/home" class="nav-link" routerLink="home">Home </a>
       </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="PMPnavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PMP
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="capm">CAPM </a>
+          <a class="dropdown-item" routerLink="pmp">PMP</a>
+        </div>
+      </li>
+
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="SCRUMnavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          SCRUM
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">PSM I </a>
+          <a class="dropdown-item" href="#">PSM II</a>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a href="/certificationList" class="nav-link">My Certifications</a>
+      </li>
+
       <li class="nav-item">
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
       </li>
@@ -32,14 +57,10 @@
     </ul>
   </nav>
 
-  <div class="container">
-    <div class="main-content">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
+  <div >
+
     <router-outlet></router-outlet>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  </div>
+
 </div>

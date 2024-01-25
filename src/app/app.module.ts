@@ -22,6 +22,12 @@ import { UserexamrecapquestionsComponent } from './userexamrecapquestions/userex
 import { UserexamenquestionsComponent } from './userexamenquestions/userexamenquestions.component';
 import { UserexamenvalidateComponent } from './userexamenvalidate/userexamenvalidate.component';
 import { QuestionsvalidateComponent } from './questionsvalidate/questionsvalidate.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ItilComponent } from './itil/itil.component';
+import { ScrumComponent } from './scrum/scrum.component';
+import { PmpComponent } from './pmp/pmp.component';
+import { CapmComponent } from './capm/capm.component';
+import { PmptestComponent } from './pmptest/pmptest.component';
 
 @NgModule({
   declarations: [
@@ -40,14 +46,20 @@ import { QuestionsvalidateComponent } from './questionsvalidate/questionsvalidat
     UserexamrecapquestionsComponent,
     UserexamenquestionsComponent,
     UserexamenvalidateComponent,
-    QuestionsvalidateComponent
+    QuestionsvalidateComponent,
+    ItilComponent,
+    ScrumComponent,
+    PmpComponent,
+    CapmComponent,
+    PmptestComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

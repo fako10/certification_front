@@ -14,9 +14,19 @@ import { UserExamenComponent } from './user-examen/user-examen.component';
 import {ExamenComponent} from "./examen/examen.component";
 import {UserexamenvalidateComponent} from "./userexamenvalidate/userexamenvalidate.component";
 import {QuestionsvalidateComponent} from "./questionsvalidate/questionsvalidate.component";
+import {ItilComponent} from "./itil/itil.component";
+import {ScrumComponent} from "./scrum/scrum.component";
+import {PmpComponent} from "./pmp/pmp.component";
+import {CapmComponent} from "./capm/capm.component";
+import {PmptestComponent} from "./pmptest/pmptest.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'itil', component: ItilComponent },
+  { path: 'scrum', component: ScrumComponent },
+  { path: 'capm', component: CapmComponent },
+  { path: 'pmptest', component: PmptestComponent },
+  { path: 'pmp', component: PmpComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },

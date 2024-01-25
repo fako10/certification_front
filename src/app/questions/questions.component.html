@@ -1,5 +1,5 @@
 <p>
-{{display}}
+{{display}}   <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
 </p>
 <div *ngIf="currentQuestion">
 
@@ -17,11 +17,24 @@
 
 <button *ngIf = "!isLastQuestion()" (click)=" getNextQuestion()"> next</button>
 <button *ngIf = "isLastQuestion()" (click)=" validateExamen()"> validate</button>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label >êtes vous sûre de mettre fin à l'examen</label>
 
 
-
-
-
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="validateExamen()">Save</button>
+  </div>
+</ng-template>
 
 
 

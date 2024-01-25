@@ -78,7 +78,7 @@ export class ExamenListComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  onViewFaceSnap(): void {
-    this.router.navigateByUrl(`facesnaps/`);
+  onViewFaceSnap(id : any): void {
+    this.router.navigateByUrl(`/questionValidate/${id}`)
   }
 }

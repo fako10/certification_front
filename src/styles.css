@@ -1,9 +1,40 @@
+
 /* You can add global styles to this file, and also import other style files */
 .icon-name {
   color: #000;
 }
 /*  Opensans
 --------------- */
+.center-div {
+  margin: 0 auto;
+}
+.spanBadge{
+  color:  #2fabb7;
+}
+.card-custom{
+  background-color: #2fabb7;
+  margin: 7.5px 0;
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.badge-l{
+  color: #4b88a6;
+}
+.badge-custom {
+  background: #4b88a6;
+  color: #ffffff;
+}
+.correct {
+  color: green;
+}
+.incorrect {
+  color: red;
+}
+.blank {
+
+}
 .card-body {
   padding: 0;
 }

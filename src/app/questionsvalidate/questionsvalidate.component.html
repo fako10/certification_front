@@ -1,0 +1,44 @@
+<div *ngIf="currentQuestion" >
+
+  <div class="h4">
+    question  {{ questionNumber + 1}} : <span [ngClass]="iscorrect(currentQuestion)" >{{iscorrect(currentQuestion)}}</span>
+  </div>
+
+  <br>
+
+
+
+ {{ currentQuestion.intitule }}
+
+  <br>
+  <br>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let reponse of currentQuestion.reponses; let i = index" >
+
+      <span [ngClass]="getClass(reponse) " >
+
+      <input type="checkbox"   [(ngModel)]="reponse.selectionne" disabled="disabled"> {{ reponse.intitule }}
+        <br>
+      </span>
+    </li>
+
+  </ul>
+</div>
+<br>
+  <div >
+    {{ currentQuestion?.description }}
+  </div>
+
+<br>
+
+<button class="btn btn-primary btn-rounded" *ngIf = "!isLastQuestion()" (click)=" getNextQuestion()"> next</button>
+
+
+
+
+
+
+
+
+

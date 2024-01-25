@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit, TemplateRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Question } from '../models/Question.model';
 import { UserExamen } from '../models/UserExamen.model';
 import { QuestionService } from '../_services/question.service';
+import {ModalDismissReasons, NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+// @ts-ignore
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
@@ -16,6 +18,8 @@ currentQuestion?:Question;
 questionNumber = 0;
 questions?: Array<Question>;
 display: any;
+private modalService = inject(NgbModal);
+closeResult = '';
 
 
   constructor(private questionService : QuestionService,
@@ -25,6 +29,28 @@ display: any;
   ngOnInit(): void {
     this.timer(1);
     this.getUserExamen(this.route.snapshot.params['id']);
+  }
+
+  open(content: TemplateRef<any>) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      },
+    );
+  }
+
+  private getDismissReason(reason: any): string {
+    switch (reason) {
+      case ModalDismissReasons.ESC:
+        return 'by pressing ESC';
+      case ModalDismissReasons.BACKDROP_CLICK:
+        return 'by clicking on a backdrop';
+      default:
+        return `with: ${reason}`;
+    }
   }
 
   getUserExamen(id: string): void {
@@ -60,6 +86,7 @@ display: any;
   }
 
   validateExamen():void {
+    this.modalService.dismissAll('fin');
     console.log('valider')
     this.questionService.saveExamen(this.userExamen || new UserExamen).subscribe(data => {
         this.userExamen = data;
