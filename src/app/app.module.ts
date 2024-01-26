@@ -28,6 +28,8 @@ import { ScrumComponent } from './scrum/scrum.component';
 import { PmpComponent } from './pmp/pmp.component';
 import { CapmComponent } from './capm/capm.component';
 import { PmptestComponent } from './pmptest/pmptest.component';
+import { ItilfoundationComponent } from './itilfoundation/itilfoundation.component';
+import { Psm1Component } from './psm1/psm1.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { PmptestComponent } from './pmptest/pmptest.component';
     ScrumComponent,
     PmpComponent,
     CapmComponent,
-    PmptestComponent
+    PmptestComponent,
+    ItilfoundationComponent,
+    Psm1Component
   ],
   imports: [
     BrowserModule,

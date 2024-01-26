@@ -19,11 +19,15 @@ import {ScrumComponent} from "./scrum/scrum.component";
 import {PmpComponent} from "./pmp/pmp.component";
 import {CapmComponent} from "./capm/capm.component";
 import {PmptestComponent} from "./pmptest/pmptest.component";
+import {ItilfoundationComponent} from "./itilfoundation/itilfoundation.component";
+import {Psm1Component} from "./psm1/psm1.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'itil', component: ItilComponent },
+  { path: 'itilfoundation', component: ItilfoundationComponent },
   { path: 'scrum', component: ScrumComponent },
+  { path: 'psm1', component: Psm1Component },
   { path: 'capm', component: CapmComponent },
   { path: 'pmptest', component: PmptestComponent },
   { path: 'pmp', component: PmpComponent },
