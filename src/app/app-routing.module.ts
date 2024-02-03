@@ -21,12 +21,14 @@ import {CapmComponent} from "./capm/capm.component";
 import {PmptestComponent} from "./pmptest/pmptest.component";
 import {ItilfoundationComponent} from "./itilfoundation/itilfoundation.component";
 import {Psm1Component} from "./psm1/psm1.component";
+import {EmailvalidationComponent} from "./emailvalidation/emailvalidation.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'itil', component: ItilComponent },
   { path: 'itilfoundation', component: ItilfoundationComponent },
   { path: 'scrum', component: ScrumComponent },
+  { path: 'emailvalidation/:username', component: EmailvalidationComponent },
   { path: 'psm1', component: Psm1Component },
   { path: 'capm', component: CapmComponent },
   { path: 'pmptest', component: PmptestComponent },

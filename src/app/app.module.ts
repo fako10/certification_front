@@ -30,6 +30,7 @@ import { CapmComponent } from './capm/capm.component';
 import { PmptestComponent } from './pmptest/pmptest.component';
 import { ItilfoundationComponent } from './itilfoundation/itilfoundation.component';
 import { Psm1Component } from './psm1/psm1.component';
+import { EmailvalidationComponent } from './emailvalidation/emailvalidation.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { Psm1Component } from './psm1/psm1.component';
     CapmComponent,
     PmptestComponent,
     ItilfoundationComponent,
-    Psm1Component
+    Psm1Component,
+    EmailvalidationComponent
   ],
   imports: [
     BrowserModule,

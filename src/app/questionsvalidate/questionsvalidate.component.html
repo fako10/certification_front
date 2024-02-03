@@ -1,38 +1,44 @@
-<div *ngIf="currentQuestion" >
+<div class="col-2">
 
-  <div class="h4">
-    question  {{ questionNumber + 1}} : <span [ngClass]="iscorrect(currentQuestion)" >{{iscorrect(currentQuestion)}}</span>
-  </div>
+</div>
+<div class="center-div col-8">
+  <div *ngIf="currentQuestion" >
 
-  <br>
+    <div class="h4">
+      question  {{ questionNumber + 1}} : <span [ngClass]="iscorrect(currentQuestion)" >{{iscorrect(currentQuestion)}}</span>
+    </div>
+
+    <br>
 
 
 
- {{ currentQuestion.intitule }}
+    {{ currentQuestion.intitule }}
 
-  <br>
-  <br>
+    <br>
+    <br>
 
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let reponse of currentQuestion.reponses; let i = index" >
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let reponse of currentQuestion.reponses; let i = index" >
 
       <span [ngClass]="getClass(reponse) " >
 
       <input type="checkbox"   [(ngModel)]="reponse.selectionne" disabled="disabled"> {{ reponse.intitule }}
         <br>
       </span>
-    </li>
+      </li>
 
-  </ul>
-</div>
-<br>
+    </ul>
+  </div>
+  <br>
   <div >
     {{ currentQuestion?.description }}
   </div>
 
-<br>
+  <br>
 
-<button class="btn btn-primary btn-rounded" *ngIf = "!isLastQuestion()" (click)=" getNextQuestion()"> next</button>
+  <button class="btn btn-primary btn-rounded" *ngIf = "!isLastQuestion()" (click)=" getNextQuestion()"> next</button>
+</div>
+
 
 
 

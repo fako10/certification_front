@@ -17,7 +17,6 @@ export class ExamenComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    console.log('voyons iici' + this.route.snapshot.params['id']);
     this.getExamen(this.route.snapshot.params['id']);
   }
 
@@ -26,16 +25,11 @@ export class ExamenComponent implements OnInit {
       .subscribe(
         data => {
           this.examen = data;
-          console.log('examen seul')
-          console.log(id);
-          console.log('examen  ' + data);
+          console.log(data);
         },
         error => {
           console.log(error);
         });
   }
-  onViewTest(id: any): void {
-    console.log('testez voir');
 
-  }
 }

@@ -1,0 +1,53 @@
+<div class="col-2">
+
+</div>
+
+<div class="center-div col-8">
+  <div class="card card-container">
+    <form  name="form"
+           (ngSubmit)="f.form.valid && onSubmit()"
+           #f="ngForm"
+           novalidate>
+
+      <div class="form-group col-4">
+        <label for="validationcode">Validation Code</label>
+        <input
+          type="text"
+          class="form-control"
+          name="validationcode"
+          id="validationcode"
+          [(ngModel)]="validationCode"
+          required
+          #username="ngModel"
+        />
+
+      </div>
+
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="username.errors && f.submitted"
+      >
+        validation code is required!
+      </div>
+
+      <div class="form-group col-2">
+        <button class="btn btn-primary btn-block" (click)="onSubmit()">
+          ok
+        </button>
+      </div>
+
+      <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && isEmailValidationFailed"
+        >
+          Emailvalidation failed: {{ errorMessage }}
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>

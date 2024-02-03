@@ -31,7 +31,6 @@ export class ExamenListComponent implements OnInit {
   ngOnInit(): void {
     this.getExamens(this.route.snapshot.params['id']);
     this.getExamenGroups(this.route.snapshot.params['id']);
-    console.log('je teste voir');
     console.log(this.certification);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CertificationService } from '../_services/certification.service';
 import { Certification } from '../models/certification.model';
+import {fromEvent, Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-certifications',
@@ -13,11 +14,23 @@ export class CertificationsComponent implements OnInit {
   currentTutorial: Certification = {};
   currentIndex = -1;
   title = '';
+  showError: boolean = false;
+  private unsubscriber: Subject<void> = new Subject<void>();
+
 
   constructor(private certificationService: CertificationService) { }
 
   ngOnInit(): void {
     this.retrieveCertifications();
+
+    history.pushState(null, '');
+
+    fromEvent(window, 'popstate')
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((_) => {
+        history.pushState(null, '');
+        this.showError = true;
+      });
   }
 
   retrieveCertifications(): void {

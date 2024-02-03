@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Examen} from "../models/Examen.model";
 import {ExamenService} from "../_services/examen.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserExamen} from "../models/UserExamen.model";
+import {fromEvent, Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-userexamenvalidate',
@@ -12,15 +13,35 @@ import {UserExamen} from "../models/UserExamen.model";
 export class UserexamenvalidateComponent implements OnInit {
 
   userExamen?: UserExamen;
-  constructor(private examenService : ExamenService,
+  showError: boolean = false;
+  private unsubscriber: Subject<void> = new Subject<void>();
+
+  constructor(private examenService: ExamenService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     this.retrieveExamen(this.route.snapshot.params['id']);
+
+    history.pushState(null, '');
+
+    fromEvent(window, 'popstate')
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((_) => {
+        history.pushState(null, '');
+        this.showError = true;
+      });
+
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "\o/";
+      console.log("cond");
+      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+      return confirmationMessage;              // Gecko, WebKit, Chrome <34
+    });
   }
 
-  retrieveExamen(id: any) : void {
+  retrieveExamen(id: any): void {
     this.examenService.getUserExamen(id).subscribe(
       data => {
         this.userExamen = data;
@@ -32,7 +53,7 @@ export class UserexamenvalidateComponent implements OnInit {
     )
   }
 
-  gotoQuestionsDetails(id: any) : void {
+  gotoQuestionsDetails(id: any): void {
     this.router.navigateByUrl(`/questionValidate/${this.userExamen?.id}`)
   }
 

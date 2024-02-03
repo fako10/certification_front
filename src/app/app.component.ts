@@ -13,11 +13,12 @@ export class AppComponent {
   //showAdminBoard = false;
   //showModeratorBoard = false;
   username?: string;
-  title = 'certification';  
+  title = 'certification';
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    console.log('init APP ....');
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();

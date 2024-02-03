@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {fromEvent, Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+
+  showError: boolean = false;
+  private unsubscriber: Subject<void> = new Subject<void>();
   constructor() { }
 
   ngOnInit(): void {
+
+
+
+    window.addEventListener("keyup", disableF5);
+
+    window.addEventListener("keydown", disableF5);
+    function disableF5(e: any) {
+
+      if ((e.which || e.keyCode) == 116) e.preventDefault();
+
+    };
+
+
+    history.pushState(null, '');
+
+    fromEvent(window, 'popstate')
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((_) => {
+        history.pushState(null, '');
+        this.showError = true;
+      });
+
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "\o/";
+      console.log("cond");
+      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+      return confirmationMessage;              // Gecko, WebKit, Chrome <34
+    });
+
   }
 
 }
