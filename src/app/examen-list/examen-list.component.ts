@@ -78,6 +78,6 @@ export class ExamenListComponent implements OnInit {
   }
 
   onViewFaceSnap(id : any): void {
-    this.router.navigateByUrl(`/questionValidate/${id}`)
+    this.router.navigateByUrl(`/userExamenValidate/${id}`)
   }
 }

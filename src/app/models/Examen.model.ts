@@ -3,4 +3,5 @@ export class Examen {
     libelle?: string;
     description?: string;
     certification?: string;
+    pourcentage?: number;
 }

@@ -24,21 +24,6 @@ export class UserexamenvalidateComponent implements OnInit {
   ngOnInit(): void {
     this.retrieveExamen(this.route.snapshot.params['id']);
 
-    history.pushState(null, '');
-
-    fromEvent(window, 'popstate')
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe((_) => {
-        history.pushState(null, '');
-        this.showError = true;
-      });
-
-    window.addEventListener("beforeunload", function (e) {
-      var confirmationMessage = "\o/";
-      console.log("cond");
-      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
-      return confirmationMessage;              // Gecko, WebKit, Chrome <34
-    });
   }
 
   retrieveExamen(id: any): void {

@@ -1,11 +1,48 @@
 <div class="col-2">
 
 </div>
-<div class="center-div col-8">
-<div class="card-body tab-content br-n pn">
-  <p> {{userExamen?.id}} </p>
+<div class="center-div col-10">
+  <div class="row ">
 
-  <button  (click)=" gotoQuestionsDetails(userExamen?.id)">voir les détails</button>
+    <div class="">
+
+
+      <div class="col-md-8 badge-warning card">
+        <div class="stat-widget-one">
+          <div class="stat-content dib">
+            <div class="stat-text"><h4>{{userExamen?.libelleCertification}} - {{userExamen?.libelleExamen }} - {{userExamen?.dateExamen | date: 'dd/MM/yy  HH:mm'}}</h4></div>
+            <div class="card-title"> <p>{{userExamen?.nbrQuestions}} questions |  {{userExamen?.duree}} minutes | percentage required to pass {{userExamen?.pourcentage}}
+              <p>{{userExamen?.nbrQuestions}} correct answers
+              <p>
+            </div>
+          </div>
+          <p><button  class="btn btn-primary bg-twitter btn-flat btn-addon m-t-6" (click)=" gotoQuestionsDetails(userExamen?.id)">see details</button>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="center-div col-8 row">
+<div class="spanBadge">
+
+  <h3> {{userExamen?.libelleCertification}} - {{userExamen?.libelleExamen }} - {{userExamen?.dateExamen | date: 'dd/MM/yy  HH:mm'}}</h3>
+
+
+
+
+
+
 
 </div>
 </div>

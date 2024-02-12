@@ -36,12 +36,6 @@ export class HomeComponent implements OnInit {
         this.showError = true;
       });
 
-    window.addEventListener("beforeunload", function (e) {
-      var confirmationMessage = "\o/";
-      console.log("cond");
-      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
-      return confirmationMessage;              // Gecko, WebKit, Chrome <34
-    });
 
   }
 
