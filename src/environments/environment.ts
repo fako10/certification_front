@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  password: 'password',
+  authuser: 'auth-user',
+  amount: 'amount',
+  libellecertification: 'current_certification',
+  idcertification: 'idcertification',
+  baseUrl : 'http://localhost:8080/api/payement/paye',
+  stripe: 'pk_test_51OW90nCxzoszcrHkvvS5ilqyqDG7Q9ZC9c0VgZFJwEkuSHDuRli939fpazCRH0LT6gpH0BX9Zpzc9sVI5Nb49lQG00VOBmELba'
 };
 
 /*

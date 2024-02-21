@@ -1,6 +1,7 @@
 export class Certification {
-  id?: any;
+  id?: number;
   libelle?: string;
   description?: string;
+  amount?:number;
 
 }

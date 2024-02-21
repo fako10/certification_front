@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit, TemplateRef} from '@angular/core';
 import {AuthService} from '../_services/auth.service';
 import {TokenStorageService} from '../_services/token-storage.service';
 import {Router} from "@angular/router";
-import {fromEvent, Subject, takeUntil} from "rxjs";
+import {Subject, takeUntil} from "rxjs";
+import {environment} from "../../environments/environment";
+import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-login',
@@ -15,17 +17,77 @@ export class LoginComponent implements OnInit {
     username: null,
     password: null
   };
+
+  userDetails = {
+    email: ''
+  };
+
+  private modalService = inject(NgbModal);
   isLoggedIn = false;
+  isPasswdChangeSucceed = false;
+  isPasswdChangeFail = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
   isLocked = false;
+
   email = '';
   showError: boolean = false;
+  userEmail = '';
+
+  closeResult = '';
+
   private unsubscriber: Subject<void> = new Subject<void>();
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) {
   }
+
+  open(content: TemplateRef<any>) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      },
+    );
+  }
+
+  private getDismissReason(reason: any): string {
+    switch (reason) {
+      case ModalDismissReasons.ESC:
+        return 'by pressing ESC';
+      case ModalDismissReasons.BACKDROP_CLICK:
+        return 'by clicking on a backdrop';
+      default:
+        return `with: ${reason}`;
+    }
+  }
+
+  submitForm(form: any): void {
+
+    this.authService.generatePwd(this.userDetails).subscribe(
+      data => {
+        console.log(data);
+        this.isPasswdChangeSucceed = true;
+        //this.router.navigateByUrl(`emailvalidation/${username}`)
+      },
+      err => {
+        this.isPasswdChangeFail = true;
+        console.log(err.error.message);
+        this.errorMessage = err.error.message;
+      }
+    );
+
+
+
+    if (form.valid) {
+      console.log('Form data:', this.userDetails);
+
+
+    }
+  }
+
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -33,14 +95,13 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getUser().roles;
     }
 
-    history.pushState(null, '');
 
-    fromEvent(window, 'popstate')
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe((_) => {
-        history.pushState(null, '');
-        this.showError = true;
-      });
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "\o/";
+      console.log("cond");
+      e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
+      return confirmationMessage;              // Gecko, WebKit, Chrome <34
+    });
 
   }
 
@@ -60,7 +121,18 @@ export class LoginComponent implements OnInit {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;
-          this.reloadPage();
+          const certification =  window.sessionStorage.getItem('current_certification');
+          if(certification != null) {
+            const id = window.sessionStorage.getItem('idcertification');
+            window.sessionStorage.removeItem('current_certification');
+            window.sessionStorage.removeItem('idcertification');
+            this.router.navigateByUrl(`checkout/${id}`);
+          } else {
+            window.sessionStorage.removeItem('current_certification');
+            window.sessionStorage.removeItem('idcertification');
+            this.reloadPage();
+          }
+
         }
 
       },

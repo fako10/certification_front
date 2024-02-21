@@ -23,14 +23,7 @@ export class CertificationsComponent implements OnInit {
   ngOnInit(): void {
     this.retrieveCertifications();
 
-    history.pushState(null, '');
 
-    fromEvent(window, 'popstate')
-      .pipe(takeUntil(this.unsubscriber))
-      .subscribe((_) => {
-        history.pushState(null, '');
-        this.showError = true;
-      });
   }
 
   retrieveCertifications(): void {

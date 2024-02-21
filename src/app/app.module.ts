@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule  } from '@angular/forms'; 
+import { FormsModule  } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -31,6 +31,12 @@ import { PmptestComponent } from './pmptest/pmptest.component';
 import { ItilfoundationComponent } from './itilfoundation/itilfoundation.component';
 import { Psm1Component } from './psm1/psm1.component';
 import { EmailvalidationComponent } from './emailvalidation/emailvalidation.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from "@angular/material/card";
+import { SuccessComponent } from './success/success.component';
+import { RecoverypasswordComponent } from './recoverypassword/recoverypassword.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +63,11 @@ import { EmailvalidationComponent } from './emailvalidation/emailvalidation.comp
     PmptestComponent,
     ItilfoundationComponent,
     Psm1Component,
-    EmailvalidationComponent
+    EmailvalidationComponent,
+    CheckoutComponent,
+    SuccessComponent,
+    RecoverypasswordComponent,
+    ChangepasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +75,9 @@ import { EmailvalidationComponent } from './emailvalidation/emailvalidation.comp
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

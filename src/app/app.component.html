@@ -12,7 +12,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink="capm">CAPM </a>
-          <a class="dropdown-item" routerLink="pmp">PMP</a>
+          <a class="dropdown-item" routerLink="pmptest">PMP</a>
         </div>
       </li>
 
@@ -32,13 +32,13 @@
           ITIL
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/itilfoundation"  >PSM I </a>
+          <a class="dropdown-item" href="/itilfoundation" >ITIL Foundation </a>
         </div>
       </li>
 
 
       <li class="nav-item">
-        <a href="/certificationList" class="nav-link">My Certifications</a>
+        <a href="/certificationList" class="nav-link" *ngIf="isLoggedIn">My Certifications</a>
       </li>
 
       <li class="nav-item">

@@ -9,7 +9,7 @@ import { TokenStorageService } from './_services/token-storage.service';
 export class AppComponent {
 
   private roles: string[] = [];
-  isLoggedIn = false;
+    isLoggedIn = false;
   //showAdminBoard = false;
   //showModeratorBoard = false;
   username?: string;
