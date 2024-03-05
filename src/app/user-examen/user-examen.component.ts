@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs/internal/Observable';
 import {Question} from '../models/Question.model';
 import {UserExamen} from '../models/UserExamen.model';
 import {QuestionService} from '../_services/question.service';

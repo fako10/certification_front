@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Examen} from "../models/Examen.model";
 import {ExamenService} from "../_services/examen.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserExamen} from "../models/UserExamen.model";

@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const API_URL = 'http://localhost:8080/api/test/';
-const CERTIF_URL = 'http://localhost:8080/api/certifications';
+import {GlobalConstants} from "../_common/global-constants";
+//const API_URL = 'http://164.68.122.151:8080/api/test/';
+//const CERTIF_URL = 'http://164.68.122.151:8080/api/certifications';
 
+
+const API_URL = GlobalConstants.baseUrl + "test/";
+const CERTIF_URL = GlobalConstants.baseUrl + "certifications";;
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {environment} from "../../environments/environment";
-import {UserExamen} from "../models/UserExamen.model";
 import {Certification} from "../models/certification.model";
 import {CheckoutService} from "../_services/checkout.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-success',
@@ -15,8 +12,7 @@ export class SuccessComponent implements OnInit {
 
 
   certification?: Certification;
-  constructor(private checkoutService : CheckoutService,
-              private router: Router) { }
+  constructor(private checkoutService : CheckoutService) { }
 
   ngOnInit(): void {
 

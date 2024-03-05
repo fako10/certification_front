@@ -23,7 +23,7 @@
           SCRUM
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="psm1">PSM I </a>
+          <a class="dropdown-item" routerLink="psm1">PSM I </a>
         </div>
       </li>
 
@@ -32,7 +32,16 @@
           ITIL
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/itilfoundation" >ITIL Foundation </a>
+          <a class="dropdown-item" routerLink="itilfoundation" >ITIL Foundation </a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="MorenavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="contact" >Contact us </a>
         </div>
       </li>
 
@@ -45,6 +54,7 @@
         <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
       </li>
     </ul>
+
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">

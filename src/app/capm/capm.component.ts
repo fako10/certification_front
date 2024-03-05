@@ -17,6 +17,7 @@ export class CapmComponent implements OnInit {
               private checkoutService : CheckoutService) { }
 
   ngOnInit(): void {
+    console.log('init .........');
     this.getCertification("CAPM");
   }
 
@@ -37,6 +38,7 @@ export class CapmComponent implements OnInit {
 
   async pay(): Promise<void> {
 
+    console.log('test');
     return this.checkoutService.pay(this.certification);
     // here we create a payment object
   }

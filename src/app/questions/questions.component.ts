@@ -43,7 +43,7 @@ export class QuestionsComponent implements OnInit {
       });
 
     window.addEventListener("beforeunload", function (e) {
-      var confirmationMessage = "\o/";
+      const confirmationMessage = "\o/";
       console.log("cond");
       e.returnValue = confirmationMessage;     // Gecko, Trident, Chrome 34+
       return confirmationMessage;              // Gecko, WebKit, Chrome <34
@@ -101,8 +101,7 @@ export class QuestionsComponent implements OnInit {
   }
 
   isLastQuestion() {
-    if (this.questionNumber + 1 == this.questions?.length) return true
-    else return false;
+    return this.questionNumber + 1 == this.questions?.length;
   }
 
   validateExamen(): void {

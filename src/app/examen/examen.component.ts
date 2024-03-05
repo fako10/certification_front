@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Examen} from "../models/Examen.model";
 import {ExamenService} from "../_services/examen.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-examen',
@@ -13,8 +13,7 @@ export class ExamenComponent implements OnInit {
   examen?: Examen;
 
   constructor(private examenService : ExamenService,
-              private route: ActivatedRoute,
-              private router: Router) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getExamen(this.route.snapshot.params['id']);

@@ -2,8 +2,7 @@ import {Component, inject, OnInit, TemplateRef} from '@angular/core';
 import {AuthService} from '../_services/auth.service';
 import {TokenStorageService} from '../_services/token-storage.service';
 import {Router} from "@angular/router";
-import {Subject, takeUntil} from "rxjs";
-import {environment} from "../../environments/environment";
+import {Subject} from "rxjs";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({

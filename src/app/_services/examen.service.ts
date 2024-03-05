@@ -4,10 +4,16 @@ import { Observable } from 'rxjs';
 import { Examen } from '../models/Examen.model';
 import {ExamenGroup} from "../models/ExamenGroup.model";
 import {UserExamen} from "../models/UserExamen.model";
-const examensURL = 'http://localhost:8080/api/examens';
-const examenGroupsURL = 'http://localhost:8080/api/examengroups';
-const examenURL = 'http://localhost:8080/api/examen';
-const userExamenURL = 'http://localhost:8080/api/userExamen';
+import {GlobalConstants} from "../_common/global-constants";
+//const examensURL = 'http://164.68.122.151:8080/api/examens';
+//const examenGroupsURL = 'http://164.68.122.151:8080/api/examengroups';
+//const examenURL = 'http://164.68.122.151:8080/api/examen';
+//const userExamenURL = 'http://164.68.122.151:8080/api/userExamen';
+
+const examensURL = GlobalConstants.baseUrl + "examens";
+const examenGroupsURL = GlobalConstants.baseUrl + "examengroups";
+const examenURL = GlobalConstants.baseUrl + "examen";
+const userExamenURL =  GlobalConstants.baseUrl + "userExamen";
 
 @Injectable({
   providedIn: 'root'

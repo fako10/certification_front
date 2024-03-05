@@ -25,10 +25,12 @@ import {EmailvalidationComponent} from "./emailvalidation/emailvalidation.compon
 import {CheckoutComponent} from "./checkout/checkout.component";
 import {SuccessComponent} from "./success/success.component";
 import {ChangepasswordComponent} from "./changepassword/changepassword.component";
+import {ContactComponent} from "./contact/contact.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'itil', component: ItilComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'changepassword', component: ChangepasswordComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'checkout/:id', component: CheckoutComponent },
@@ -57,4 +59,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

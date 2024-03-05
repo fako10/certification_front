@@ -37,6 +37,9 @@ import {MatCardModule} from "@angular/material/card";
 import { SuccessComponent } from './success/success.component';
 import { RecoverypasswordComponent } from './recoverypassword/recoverypassword.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import { ContactComponent } from './contact/contact.component';
+import { RefundComponent } from './refund/refund.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,9 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     CheckoutComponent,
     SuccessComponent,
     RecoverypasswordComponent,
-    ChangepasswordComponent
+    ChangepasswordComponent,
+    ContactComponent,
+    RefundComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +84,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
     BrowserAnimationsModule,
     MatCardModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, {provide : LocationStrategy, useClass : HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

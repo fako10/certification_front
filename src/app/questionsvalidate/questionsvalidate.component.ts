@@ -21,8 +21,7 @@ export class QuestionsvalidateComponent implements OnInit {
   private unsubscriber: Subject<void> = new Subject<void>();
 
   constructor(private questionService: QuestionService,
-              private route: ActivatedRoute,
-              private router: Router) {
+              private route: ActivatedRoute) {
 
   }
 
@@ -90,7 +89,6 @@ export class QuestionsvalidateComponent implements OnInit {
   }
 
   isLastQuestion() {
-    if (this.questionNumber + 1 == this.questions?.length) return true
-    else return false;
+    return this.questionNumber + 1 == this.questions?.length;
   }
 }

@@ -3,9 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Examen } from '../models/Examen.model';
 import { UserExamen } from '../models/UserExamen.model';
-const baseUrl = 'http://localhost:8080/api/examens/create-user-examen';
-const savedExamenUrl = 'http://localhost:8080/api/examens/get-user-examen';
-const saveExamenUrls = 'http://localhost:8080/api/examens/saveExamen';
+import {GlobalConstants} from "../_common/global-constants";
+
+//const baseUrl = 'http://164.68.122.151:8080/api/examens/create-user-examen';
+//const savedExamenUrl = 'http://164.68.122.151:8080/api/examens/get-user-examen';
+//const saveExamenUrls = 'http://164.68.122.151:8080/api/examens/saveExamen';
+
+const baseUrl = GlobalConstants.baseUrl + "examens/create-user-examen";
+const savedExamenUrl = GlobalConstants.baseUrl + "examens/get-user-examen";
+const saveExamenUrls = GlobalConstants.baseUrl + "examens/saveExamen";
+
 
 @Injectable({
   providedIn: 'root'

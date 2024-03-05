@@ -5,10 +5,11 @@ import {Certification} from "../models/certification.model";
 import {environment} from "../../environments/environment";
 import { Router} from "@angular/router";
 import {loadStripe} from "@stripe/stripe-js";
+import {GlobalConstants} from "../_common/global-constants";
 
+const baseUrl = GlobalConstants.baseUrl + "payement";
+const URL = GlobalConstants.baseUrl + "payement/register";
 
-const baseUrl = 'http://localhost:8080/api/payement';
-const URL = 'http://localhost:8080/api/payement/register';
 
 @Injectable({
   providedIn: 'root'
@@ -36,15 +37,15 @@ export class CheckoutService {
 
   saveCertificationOnSession(certification: Certification | undefined): void {
     // @ts-ignore
-    window.sessionStorage.setItem(environment.libellecertification, <string>certification.libelle);
+    window.sessionStorage.setItem(GlobalConstants.libellecertification, <string>certification.libelle);
     // @ts-ignore
-    window.sessionStorage.setItem(environment.idcertification, <string>certification.id?.toString());
+    window.sessionStorage.setItem(GlobalConstants.idcertification, <string>certification.id?.toString());
     // @ts-ignore
-    window.sessionStorage.setItem(environment.amount, <string>certification.amount?.toString());
+    window.sessionStorage.setItem(GlobalConstants.amount, <string>certification.amount?.toString());
   }
 
   async pay(certification: Certification | undefined): Promise<void> {
-    const user = window.sessionStorage.getItem('auth-user');
+    const user = window.sessionStorage.getItem(GlobalConstants.authuser);
     if (user == null) {
       this.saveCertificationOnSession(certification);
       this.router.navigateByUrl('/login');
@@ -63,6 +64,7 @@ export class CheckoutService {
 
       };
 
+      console.log(this.stripePromise);
       const stripe = await this.stripePromise;
 
       console.log(payment.amount);

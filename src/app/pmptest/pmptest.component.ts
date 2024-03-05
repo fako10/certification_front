@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Certification} from "../models/certification.model";
 import {CertificationService} from "../_services/certification.service";
-import {ActivatedRoute, Router} from "@angular/router";
 import {CheckoutService} from "../_services/checkout.service";
 
 

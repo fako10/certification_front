@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Examen} from "../models/Examen.model";
-const AUTH_API = 'http://localhost:8080/api/auth/';
+import {GlobalConstants} from "../_common/global-constants";
+//const AUTH_API = 'http://164.68.122.151:8080/api/auth/';
+const AUTH_API = GlobalConstants.baseUrl + "auth/"
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -23,7 +25,6 @@ export class AuthService {
   }
 
   generatePwd(username: { email: string }) : Observable<any> {
-    const URL = AUTH_API + 'changepwd';
     return this.http.post(AUTH_API + 'changepwd', username);
   }
 

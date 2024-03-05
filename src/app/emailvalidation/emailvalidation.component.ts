@@ -29,18 +29,13 @@ export class EmailvalidationComponent implements OnInit {
 
   onSubmit(): void {
       const pass = this.authService.getPassword();
-    console.log(this.email);
-    console.log(this.validationCode);
-    console.log(pass);
+
 
       if(pass != null) {
         this.password = pass;
       }
-      console.log(this.email);
-      console.log(this.validationCode);
       this.authService.emailValidation(this.username, this.password, this.validationCode).subscribe(
       data => {
-          console.log(data);
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
         window.location.reload();

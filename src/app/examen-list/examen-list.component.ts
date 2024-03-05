@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ExamenService } from '../_services/examen.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Examen } from '../models/Examen.model';
-import {Certification} from "../models/certification.model";
 import {ExamenGroup} from "../models/ExamenGroup.model";
 
 @Component({
