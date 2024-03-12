@@ -26,11 +26,13 @@ import {CheckoutComponent} from "./checkout/checkout.component";
 import {SuccessComponent} from "./success/success.component";
 import {ChangepasswordComponent} from "./changepassword/changepassword.component";
 import {ContactComponent} from "./contact/contact.component";
+import {RefundComponent} from "./refund/refund.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'itil', component: ItilComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'refund', component: RefundComponent },
   { path: 'changepassword', component: ChangepasswordComponent },
   { path: 'success', component: SuccessComponent },
   { path: 'checkout/:id', component: CheckoutComponent },
