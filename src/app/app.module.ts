@@ -40,6 +40,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import { ContactComponent } from './contact/contact.component';
 import { RefundComponent } from './refund/refund.component';
+import { QuestionstestComponent } from './questionstest/questionstest.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { RefundComponent } from './refund/refund.component';
     RecoverypasswordComponent,
     ChangepasswordComponent,
     ContactComponent,
-    RefundComponent
+    RefundComponent,
+    QuestionstestComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,7 @@ import { RefundComponent } from './refund/refund.component';
     BrowserAnimationsModule,
     MatCardModule
   ],
-  providers: [authInterceptorProviders, {provide : LocationStrategy, useClass : HashLocationStrategy}],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

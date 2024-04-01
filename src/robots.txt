@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.practicesexams.com/sitemap.xml

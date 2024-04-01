@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CertificationService} from "../_services/certification.service";
 import {CheckoutService} from "../_services/checkout.service";
 import {Certification} from "../models/certification.model";
+import {Meta, Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -16,11 +17,18 @@ export class ItilfoundationComponent implements OnInit {
   id: number = 1;
   amount?: number;
   constructor(private certificationService : CertificationService,
-              private checkoutService : CheckoutService
+              private checkoutService : CheckoutService,
+              private title: Title,
+              private meta : Meta
               ) { }
 
   ngOnInit(): void {
     this.getCertification("ITIL® 4 Foundation");
+    this.title.setTitle('Itil Foundation exam practice test');
+    this.meta.updateTag({
+      name: 'description',
+      content: ''
+    });
   }
 
   getCertification(libelle: any) : void {
