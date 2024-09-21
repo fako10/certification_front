@@ -94,7 +94,6 @@ export class LoginComponent implements OnInit {
       this.roles = this.tokenStorage.getUser().roles;
     }
 
-
     window.addEventListener("beforeunload", function (e) {
       var confirmationMessage = "\o/";
       console.log("cond");

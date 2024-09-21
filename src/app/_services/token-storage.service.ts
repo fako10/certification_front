@@ -8,9 +8,6 @@ const USER_KEY = 'auth-user';
   providedIn: 'root'
 })
 
-@Injectable({
-  providedIn: 'root'
-})
 export class TokenStorageService {
 
   constructor() { }
