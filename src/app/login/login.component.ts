@@ -109,7 +109,8 @@ export class LoginComponent implements OnInit {
       data => {
         this.isLocked = data.locked;
         if (this.isLocked) {
-          console.log(data);
+          console.log(data)
+
           this.authService.savePassword(password);
           this.router.navigateByUrl(`emailvalidation/${username}`)
         } else {
